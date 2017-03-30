@@ -16,14 +16,17 @@ import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 
 import com.polydes.common.comp.StatusBar;
+import com.polydes.common.res.ResourceLoader;
+import com.polydes.common.res.Resources;
 import com.polydes.paint.app.pages.FontsPage;
 import com.polydes.paint.app.pages.ImagesPage;
-import com.polydes.paint.res.Resources;
 
 import stencyl.sw.lnf.Theme;
 
 public class MainEditor extends JPanel
 {
+	private static Resources res = ResourceLoader.getResources("com.polydes.paint");
+	
 	private static MainEditor _instance;
 	
 	private static final int BUTTON_WIDTH = 70;
@@ -81,8 +84,8 @@ public class MainEditor extends JPanel
 		
 		buttonGroup = new ButtonGroup();
 		
-		fontsButton = createButton("Fonts", Resources.loadIcon("main/fonts.png"));
-		imagesButton = createButton("Images", Resources.loadIcon("main/images.png"));
+		fontsButton = createButton("Fonts", res.loadIcon("main/fonts.png"));
+		imagesButton = createButton("Images", res.loadIcon("main/images.png"));
 		
 		buttonBar.add(fontsButton);
 		buttonBar.add(imagesButton);

@@ -8,13 +8,16 @@ import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JToggleButton;
 
+import com.polydes.common.res.ResourceLoader;
+import com.polydes.common.res.Resources;
 import com.polydes.paint.app.editors.image.DrawArea;
 import com.polydes.paint.app.editors.image.ImageUtils;
 import com.polydes.paint.app.editors.image.ShapeUtils;
-import com.polydes.paint.res.Resources;
 
 public class Rectangle implements Tool, ActionListener
 {
+	private static Resources res = ResourceLoader.getResources("com.polydes.paint");
+	
 	private DrawArea area;
 	private Point beginPress;
 	private java.awt.Rectangle oldDraw;
@@ -31,8 +34,8 @@ public class Rectangle implements Tool, ActionListener
 		oldDraw = new java.awt.Rectangle(0, 0, 1, 1);
 		
 		ButtonGroup fillGroup = new ButtonGroup();
-		outline = new JToggleButton(Resources.loadIcon("draw/outline.png"));
-		filled = new JToggleButton(Resources.loadIcon("draw/filled.png"));
+		outline = new JToggleButton(res.loadIcon("draw/outline.png"));
+		filled = new JToggleButton(res.loadIcon("draw/filled.png"));
 		outline.setAlignmentX(.5f);
 		filled.setAlignmentX(.5f);
 		outline.addActionListener(this);

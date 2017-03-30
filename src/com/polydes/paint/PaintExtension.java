@@ -7,10 +7,11 @@ import java.io.IOException;
 
 import javax.swing.JPanel;
 
+import com.polydes.common.res.ResourceLoader;
+import com.polydes.common.res.Resources;
 import com.polydes.paint.app.MainEditor;
 import com.polydes.paint.data.stores.Fonts;
 import com.polydes.paint.data.stores.Images;
-import com.polydes.paint.defaults.Defaults;
 
 import stencyl.core.lib.Game;
 import stencyl.sw.ext.BaseExtension;
@@ -20,6 +21,7 @@ import stencyl.sw.util.Locations;
 
 public class PaintExtension extends BaseExtension
 {
+	private static Resources res = ResourceLoader.getResources("com.polydes.paint");
 	private static PaintExtension _instance;
 
 	private File extras;
@@ -133,23 +135,23 @@ public class PaintExtension extends BaseExtension
 			f = new File(extras, "fonts/Default Font.fnt");
 			f.getParentFile().mkdirs();
 			if (!f.exists())
-				FileHelper.writeStringToFile(f.getAbsolutePath(), Defaults.load("Default Font.fnt"));
+				FileHelper.writeStringToFile(f.getAbsolutePath(), res.loadText("defaults/Default Font.fnt"));
 	
 			f = new File(extras, "fonts/Default Font.png");
 			if (!f.exists())
 				FileHelper.writeToPNG(f.getAbsolutePath(),
-						Defaults.loadImage("Default Font.png"));
+						res.loadImage("defaults/Default Font.png"));
 	
 			f = new File(extras, "images/Default Window.png");
 			f.getParentFile().mkdirs();
 			if (!f.exists())
 				FileHelper.writeToPNG(f.getAbsolutePath(),
-						Defaults.loadImage("Default Window.png"));
+						res.loadImage("defaults/Default Window.png"));
 	
 			f = new File(extras, "images/Pointer.png");
 			if (!f.exists())
 				FileHelper.writeToPNG(f.getAbsolutePath(),
-						Defaults.loadImage("Pointer.png"));
+						res.loadImage("defaults/Pointer.png"));
 		}
 		catch (IOException e)
 		{

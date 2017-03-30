@@ -18,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 
+import com.polydes.common.res.ResourceLoader;
+import com.polydes.common.res.Resources;
 import com.polydes.paint.app.editors.image.tools.Brush;
 import com.polydes.paint.app.editors.image.tools.Bucket;
 import com.polydes.paint.app.editors.image.tools.Ellipse;
@@ -29,7 +31,6 @@ import com.polydes.paint.app.editors.image.tools.Pick;
 import com.polydes.paint.app.editors.image.tools.Rectangle;
 import com.polydes.paint.app.editors.image.tools.Select;
 import com.polydes.paint.app.editors.image.tools.Tool;
-import com.polydes.paint.res.Resources;
 
 /*
  * Toolbar for image editing.
@@ -37,6 +38,8 @@ import com.polydes.paint.res.Resources;
 
 public class DrawTools extends JPanel implements KeyListener
 {
+	private static Resources res = ResourceLoader.getResources("com.polydes.paint");
+	
 	public static Color BACKGROUND = Color.WHITE;
 	public static int BUTTON_WIDTH = 24;
 	public static int BUTTON_HEIGHT = 23;
@@ -63,16 +66,16 @@ public class DrawTools extends JPanel implements KeyListener
 	{
 		toolButtonGroup = new ButtonGroup();
 		
-		brushButton = createToolButton(Resources.loadIcon("draw/brush.png"), new Brush());
-		bucketButton = createToolButton(Resources.loadIcon("draw/bucket.png"), new Bucket());
-		ellipseButton = createToolButton(Resources.loadIcon("draw/ellipse.png"), new Ellipse());
-		eraseButton = createToolButton(Resources.loadIcon("draw/erase.png"), new Erase());
-		handButton = createToolButton(Resources.loadIcon("draw/hand.png"), new Hand());
-		lineButton = createToolButton(Resources.loadIcon("draw/line.png"), new Line());
-		pencilButton = createToolButton(Resources.loadIcon("draw/pencil.png"), new Pencil());
-		pickButton = createToolButton(Resources.loadIcon("draw/pick.png"), new Pick());
-		rectangleButton = createToolButton(Resources.loadIcon("draw/rectangle.png"), new Rectangle());
-		selectButton = createToolButton(Resources.loadIcon("draw/select.png"), new Select());
+		brushButton = createToolButton(res.loadIcon("draw/brush.png"), new Brush());
+		bucketButton = createToolButton(res.loadIcon("draw/bucket.png"), new Bucket());
+		ellipseButton = createToolButton(res.loadIcon("draw/ellipse.png"), new Ellipse());
+		eraseButton = createToolButton(res.loadIcon("draw/erase.png"), new Erase());
+		handButton = createToolButton(res.loadIcon("draw/hand.png"), new Hand());
+		lineButton = createToolButton(res.loadIcon("draw/line.png"), new Line());
+		pencilButton = createToolButton(res.loadIcon("draw/pencil.png"), new Pencil());
+		pickButton = createToolButton(res.loadIcon("draw/pick.png"), new Pick());
+		rectangleButton = createToolButton(res.loadIcon("draw/rectangle.png"), new Rectangle());
+		selectButton = createToolButton(res.loadIcon("draw/select.png"), new Select());
 		
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setBackground(BACKGROUND);
